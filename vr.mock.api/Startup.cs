@@ -11,6 +11,7 @@ using Serilog;
 using Serilog.Events;
 using vr.mock.api.Filters;
 using vr.mock.api.Services;
+using VRTradingService;
 
 namespace vr.mock.api
 {
@@ -36,6 +37,7 @@ namespace vr.mock.api
 
             services.AddHostedService<StrategyManagementService>();
             services.AddSingleton<IHostedServiceAccessor<IStrategyManagementService>, HostedServiceAccessor<IStrategyManagementService>>();
+            services.AddSingleton<IVRTradingService, VRTradingService.VRTradingService>();
             services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 

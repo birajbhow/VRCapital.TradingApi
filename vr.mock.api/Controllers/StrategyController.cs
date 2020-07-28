@@ -25,7 +25,12 @@ namespace vr.mock.api.Controllers
         [SwaggerResponse(StatusCodes.Status200OK, "OK", typeof(string))]
         public IActionResult RegisterStrategy(StrategyDetailsDto strategyDetails)
         {
-            throw new NotImplementedException();
+            var result = this._strategyManagementService.Service.RegisterStrategy(strategyDetails);
+            return new OkObjectResult(new ApiResponse
+            {
+                Success = result != null,
+                StrategyId = result
+            });
         }
 
         [HttpDelete("{id}")]
@@ -34,7 +39,17 @@ namespace vr.mock.api.Controllers
         [SwaggerResponse(StatusCodes.Status404NotFound, "Not Found")]
         public IActionResult UnregisterStrategy(string id)
         {
-            throw new NotImplementedException();
+            var result = this._strategyManagementService.Service.UnregisterStrategy(id);
+            if (result)
+            {
+                return new OkObjectResult(new ApiResponse
+                {
+                    Success = result,
+                    StrategyId = id
+                });
+            }
+            
+            return new NotFoundResult();
         }
     }
 }
