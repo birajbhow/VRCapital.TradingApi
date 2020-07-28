@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vr.mock.api", "vr.mock.api.csproj", "{66DBBB40-A43E-4600-909B-4007D8D3C06A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66DBBB40-A43E-4600-909B-4007D8D3C06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66DBBB40-A43E-4600-909B-4007D8D3C06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66DBBB40-A43E-4600-909B-4007D8D3C06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66DBBB40-A43E-4600-909B-4007D8D3C06A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C624884-7850-4044-919B-E64B0358FCA7}
+	EndGlobalSection
+EndGlobal
