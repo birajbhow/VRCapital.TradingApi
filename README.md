@@ -1,2 +1,2 @@
 
-- Check the word documentation for detailed instructions on how to run the application
+- Check the word document under "documentation" folder for detailed instructions on how to run the application
