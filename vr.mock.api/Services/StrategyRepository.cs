@@ -45,6 +45,11 @@ namespace vr.mock.api.Services
         /// <inheritdoc />
         public bool UnregisterStrategy(string strategyId)
         {
+            var strategy = this._localCache.Get<Strategy>(strategyId);
+
+            // if strategy doesn't exist or it is already been executed then can't remove it
+            if (strategy == null || strategy.ExecutionPrice > 0) return false;
+
             return this._localCache.Remove(strategyId);
         }
 

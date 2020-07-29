@@ -101,3 +101,4 @@ C:\Users\BBhow487\source\repos\VRCapital.TradingApp\vr.mock.api\obj\Debug\netcor
 C:\Users\BBhow487\source\repos\VRCapital.TradingApp\vr.mock.api\obj\Debug\netcoreapp3.1\vr.mock.api.dll
 C:\Users\BBhow487\source\repos\VRCapital.TradingApp\vr.mock.api\obj\Debug\netcoreapp3.1\vr.mock.api.pdb
 C:\Users\BBhow487\source\repos\VRCapital.TradingApp\vr.mock.api\obj\Debug\netcoreapp3.1\vr.mock.api.genruntimeconfig.cache
+C:\Users\BBhow487\source\repos\VRCapital.TradingApp\vr.mock.api\obj\Debug\netcoreapp3.1\vr.mock.api.csprojAssemblyReference.cache
