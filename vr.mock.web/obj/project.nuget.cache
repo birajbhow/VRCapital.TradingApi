@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wqpdX7lbUTp/qU1jBB7/uXBgr+aKu7yq7VtjoBf2rc3cECdXm9Kz0JXgw0LAbuD9SHDFOvxQX9T/tFjBRr9XxA==",
+  "dgSpecHash": "vKnk5h3vutDDu4YfNu4x6tlGloqdml8StkAKTcGI+vedLq6dJ8zpiLvU/8qP+glFuKfrULdnclg6otoemdpLbg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.web\\vr.mock.web.csproj",
+  "projectFilePath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.web\\vr.mock.web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BBhow487\\.nuget\\packages\\flurl\\2.8.2\\flurl.2.8.2.nupkg.sha512",
     "C:\\Users\\BBhow487\\.nuget\\packages\\flurl.http\\2.4.2\\flurl.http.2.4.2.nupkg.sha512",

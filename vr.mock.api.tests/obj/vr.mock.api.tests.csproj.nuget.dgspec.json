@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api.tests\\vr.mock.api.tests.csproj": {}
+    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api.tests\\vr.mock.api.tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api.tests\\vr.mock.api.tests.csproj": {
+    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api.tests\\vr.mock.api.tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api.tests\\vr.mock.api.tests.csproj",
+        "projectUniqueName": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api.tests\\vr.mock.api.tests.csproj",
         "projectName": "vr.mock.api.tests",
-        "projectPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api.tests\\vr.mock.api.tests.csproj",
+        "projectPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api.tests\\vr.mock.api.tests.csproj",
         "packagesPath": "C:\\Users\\BBhow487\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api.tests\\obj\\",
+        "outputPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api.tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,8 +31,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api\\vr.mock.api.csproj": {
-                "projectPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api\\vr.mock.api.csproj"
+              "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api\\vr.mock.api.csproj": {
+                "projectPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api\\vr.mock.api.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api\\vr.mock.api.csproj": {
+    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api\\vr.mock.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api\\vr.mock.api.csproj",
+        "projectUniqueName": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api\\vr.mock.api.csproj",
         "projectName": "vr.mock.api",
-        "projectPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api\\vr.mock.api.csproj",
+        "projectPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api\\vr.mock.api.csproj",
         "packagesPath": "C:\\Users\\BBhow487\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api\\obj\\",
+        "outputPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

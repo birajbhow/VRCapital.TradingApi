@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.web\\vr.mock.web.csproj": {}
+    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.web\\vr.mock.web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.web\\vr.mock.web.csproj": {
+    "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.web\\vr.mock.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.web\\vr.mock.web.csproj",
+        "projectUniqueName": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.web\\vr.mock.web.csproj",
         "projectName": "vr.mock.web",
-        "projectPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.web\\vr.mock.web.csproj",
+        "projectPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.web\\vr.mock.web.csproj",
         "packagesPath": "C:\\Users\\BBhow487\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.web\\obj\\",
+        "outputPath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApp\\vr.mock.web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
