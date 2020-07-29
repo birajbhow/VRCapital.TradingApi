@@ -1,2 +1,2 @@
-# trading-api-exercise
-- Instructions to follow over email.
+
+- Check the word documentation for detailed instructions on how to run the application
