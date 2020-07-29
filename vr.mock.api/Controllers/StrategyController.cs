@@ -51,5 +51,12 @@ namespace vr.mock.api.Controllers
             
             return new NotFoundResult();
         }
+
+        [HttpGet]
+        [SwaggerOperation(nameof(GetExecutedStrategies))]
+        public IActionResult GetExecutedStrategies()
+        {
+            return new OkObjectResult(this._strategyManagementService.Service.GetExecutedStrategies());
+        }
     }
 }

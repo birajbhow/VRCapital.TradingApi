@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P4QfcupYQXyGfxelRxx6bXcajHmwg7sv7UnOVJpG2808xMsKNizo+dMuvXwQgQ+W4Uvu3Q2+SlMHxl21VqB9PQ==",
+  "dgSpecHash": "ogUFE6k9wFxuK1asw8jhEM0quzBxKbK3rAsZguDzAbXsYuBz9K5hqx0AhSqgfCGBy5RJ4KnLMzxK7djuJ3icMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BBhow487\\Source\\Repos\\VRCapital.TradingApi\\vr.mock.api\\vr.mock.api.csproj",
+  "projectFilePath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.api\\vr.mock.api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BBhow487\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\BBhow487\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.0\\automapper.extensions.microsoft.dependencyinjection.8.0.0.nupkg.sha512",

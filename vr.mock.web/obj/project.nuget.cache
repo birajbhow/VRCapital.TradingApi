@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "wqpdX7lbUTp/qU1jBB7/uXBgr+aKu7yq7VtjoBf2rc3cECdXm9Kz0JXgw0LAbuD9SHDFOvxQX9T/tFjBRr9XxA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\BBhow487\\source\\repos\\VRCapital.TradingApi\\vr.mock.web\\vr.mock.web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\BBhow487\\.nuget\\packages\\flurl\\2.8.2\\flurl.2.8.2.nupkg.sha512",
+    "C:\\Users\\BBhow487\\.nuget\\packages\\flurl.http\\2.4.2\\flurl.http.2.4.2.nupkg.sha512",
+    "C:\\Users\\BBhow487\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\BBhow487\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\BBhow487\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\BBhow487\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512"
+  ],
+  "logs": []
+}

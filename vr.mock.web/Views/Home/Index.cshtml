@@ -1,0 +1,37 @@
+﻿@model TradeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="text-center">
+    <h2 class="display-4">Executed Trades</h2>
+    @if (Model.Trades.Count == 0)
+    {
+        <p>No Trades Found!</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Buy</th>
+                <th>Sell</th>
+                <th>Profit</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var strategy in Model.Trades)
+            {
+                <tr>
+                    <td>@strategy.Ticker</td>
+                    <td>@strategy.BuyPrice</td>
+                    <td>@strategy.SellPrice</td>
+                    <td>@strategy.Profit</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+</div>

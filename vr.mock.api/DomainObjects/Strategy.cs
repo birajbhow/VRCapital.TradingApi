@@ -3,7 +3,7 @@ using VRTradingInfrastructureServices;
 
 namespace vr.mock.api.DomainObjects
 {
-    internal class Strategy
+    public class Strategy
     {
         public string Id { get; set; }
         

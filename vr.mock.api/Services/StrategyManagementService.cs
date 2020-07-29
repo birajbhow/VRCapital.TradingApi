@@ -27,9 +27,6 @@ namespace vr.mock.api.Services
 
         protected override Task CheckStrategies()
         {
-            // un-register applied strategies
-            //this.UnRegisterAppliedStrategies();
-
             foreach (var runningStrategy in this._strategies)
             {
                 if (runningStrategy.ExecutionPrice > 0) continue;
@@ -76,16 +73,18 @@ namespace vr.mock.api.Services
             return this._strategies.Remove(this._strategies.Find(s => s.Id == strategyId));
         }
 
-        //private void UnRegisterAppliedStrategies()
-        //{
-        //    this._strategies.ForEach(s =>
-        //    {
-        //        if (s.IsApplied)
-        //        {
-        //            this.UnregisterStrategy(s.Id);
-        //        }
-        //    });
-        //}
+        public List<ExecutedStrategyDto> GetExecutedStrategies()
+        {
+            return this._strategies
+                .Where(s => s.ExecutionPrice > 0)
+                .Select(s => new ExecutedStrategyDto
+                {
+                    Ticker = s.Ticker,
+                    Instruction = s.Instruction,
+                    ExecutionPrice = s.ExecutionPrice
+                })
+                .ToList();
+        }
 
         private decimal? GetLiveQuote(string ticker)
         {
