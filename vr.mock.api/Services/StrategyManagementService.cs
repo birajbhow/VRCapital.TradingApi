@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using Serilog.Core;
 using vr.mock.api.DomainObjects;
 using vr.mock.api.Dtos;
@@ -13,25 +14,32 @@ namespace vr.mock.api.Services
 {
     internal class StrategyManagementService : VRBackgroundServiceBase, IStrategyManagementService
     {
-        private readonly IVRTradingService _tradingService;
-        private readonly List<Strategy> _strategies;
+        private readonly IStrategyTradingService _strategyTradingService;
+        private readonly ILocalCache _localCache;
+
+
         private const int TickFrequencyMilliseconds = 1000;
+        
 
         public StrategyManagementService(ILogger<StrategyManagementService> logger,
-            IVRTradingService tradingService) 
+            IStrategyTradingService strategyTradingService,
+            ILocalCache localCache) 
             : base(TimeSpan.FromMilliseconds(TickFrequencyMilliseconds), logger)
         {
-            _tradingService = tradingService;
-            _strategies = new List<Strategy>();
+            _strategyTradingService = strategyTradingService;
+            _localCache = localCache;
         }
 
         protected override Task CheckStrategies()
         {
-            foreach (var runningStrategy in this._strategies)
-            {
-                if (runningStrategy.ExecutionPrice > 0) continue;
-                
-                var liveQuote = this.GetLiveQuote(runningStrategy.Ticker); 
+            // get all non executed strategies
+            var strategies = this._localCache
+                .GetAll<Strategy>()
+                .Where(s => s.ExecutionPrice == 0);
+
+            foreach (var runningStrategy in strategies)
+            {   
+                var liveQuote = this._strategyTradingService.GetLiveQuote(runningStrategy.Ticker); 
                 if (liveQuote == null) continue;
                 
                 if (runningStrategy.Instruction == BuySell.Buy)
@@ -47,95 +55,48 @@ namespace vr.mock.api.Services
             return Task.CompletedTask;
         }
 
-        public string RegisterStrategy(StrategyDetailsDto strategyDetails)
-        {
-            var liveQuote = this.GetLiveQuote(strategyDetails.Ticker);
-            if (liveQuote != null)
-            {
-                var strategyId = Guid.NewGuid().ToString();
-                this._strategies.Add(new Strategy
-                {
-                    Id = strategyId,
-                    Instruction = strategyDetails.Instruction,
-                    PriceMovement = strategyDetails.PriceMovement,
-                    Quantity = strategyDetails.Quantity,
-                    Ticker = strategyDetails.Ticker,
-                    StartPrice = liveQuote.Value
-                });
-                return strategyId;
-            }
+        #region Private Methods
 
-            return null;
-        }
-
-        public bool UnregisterStrategy(string strategyId)
+        private void ExecuteBuyStrategy(Strategy strategy, decimal liveQuote)
         {
-            return this._strategies.Remove(this._strategies.Find(s => s.Id == strategyId));
-        }
-
-        public List<ExecutedStrategyDto> GetExecutedStrategies()
-        {
-            return this._strategies
-                .Where(s => s.ExecutionPrice > 0)
-                .Select(s => new ExecutedStrategyDto
-                {
-                    Ticker = s.Ticker,
-                    Instruction = s.Instruction,
-                    ExecutionPrice = s.ExecutionPrice
-                })
-                .ToList();
-        }
-
-        private decimal? GetLiveQuote(string ticker)
-        {
-            decimal? quote = null;
             try
             {
-                quote = this._tradingService.GetQuote(ticker);
-            }
-            catch (QuoteException ex)
-            {
-                Console.WriteLine(ex);
-            }
+                // calculating desired buy price based on starting price and price movement
+                var desiredPrice = ((100 - strategy.PriceMovement) / 100) * strategy.StartPrice;
 
-            return quote;
+                if (liveQuote <= desiredPrice)
+                {
+                    this._strategyTradingService.BuyStrategy(strategy.Ticker, strategy.Quantity);
+                    strategy.ExecutionPrice = liveQuote;
+                    this._localCache.Put(strategy.Id, strategy);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "ExecuteBuyStrategy() method exception");
+            }
         }
 
         private void ExecuteSellStrategy(Strategy strategy, decimal liveQuote)
         {
             try
             {
+                // calculating desired sell price based on starting price and price movement
                 var desiredPrice = ((100 + strategy.PriceMovement) / 100) * strategy.StartPrice;
 
                 if (liveQuote >= desiredPrice)
                 {
-                    this._tradingService.Sell(strategy.Ticker, strategy.Quantity);
+                    this._strategyTradingService.SellStrategy(strategy.Ticker, strategy.Quantity);
                     strategy.ExecutionPrice = liveQuote;
+                    this._localCache.Put(strategy.Id, strategy);
                 }
             }
-            catch (TradeException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Log.Error(ex, "ExecuteSellStrategy() method exception");
             }
         }
 
-        private void ExecuteBuyStrategy(Strategy strategy, decimal liveQuote)
-        {
-            try
-            {
-                var desiredPrice = ((100 - strategy.PriceMovement) / 100) * strategy.StartPrice;
-
-                if (liveQuote <= desiredPrice)
-                {
-                    this._tradingService.Buy(strategy.Ticker, strategy.Quantity);
-                    strategy.ExecutionPrice = liveQuote;
-                }
-            }
-            catch (TradeException ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
-
+        #endregion
     }
 }

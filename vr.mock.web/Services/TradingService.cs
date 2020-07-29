@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
+using Microsoft.Extensions.Configuration;
 using vr.mock.web.Models;
 using VRTradingInfrastructureServices;
 
@@ -11,6 +12,12 @@ namespace vr.mock.web.Services
 {
     public class TradingService : ITradingService
     {
+        private readonly IConfiguration _configuration;
+
+        public TradingService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public async Task<TradeViewModel> GetTradeViewModel()
         {
             // get strategies from trading api
@@ -40,7 +47,7 @@ namespace vr.mock.web.Services
 
         private async Task<List<ExecutedStrategy>> GetStrategies()
         {
-            var url = "http://localhost:5000";
+            var url = this._configuration["TradingApi:Url"];
             return await url
                 .AppendPathSegments("api", "strategy")
                 .WithHeader("cache-control", "no-cache")

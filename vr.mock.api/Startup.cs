@@ -38,6 +38,10 @@ namespace vr.mock.api
             services.AddHostedService<StrategyManagementService>();
             services.AddSingleton<IHostedServiceAccessor<IStrategyManagementService>, HostedServiceAccessor<IStrategyManagementService>>();
             services.AddSingleton<IVRTradingService, VRTradingService.VRTradingService>();
+            services.AddSingleton<IStrategyTradingService, StrategyTradingService>();
+            services.AddSingleton<ILocalCache, ThreadSafeLocalCache>();
+            services.AddSingleton<IStrategyRepository, StrategyRepository>();
+
             services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 

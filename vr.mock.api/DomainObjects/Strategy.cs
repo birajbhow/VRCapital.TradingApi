@@ -18,7 +18,5 @@ namespace vr.mock.api.DomainObjects
         public decimal StartPrice { get; set; }
 
         public decimal ExecutionPrice { get; set; } = 0;
-        //public bool IsApplied { get; set; }
-
     }
 }

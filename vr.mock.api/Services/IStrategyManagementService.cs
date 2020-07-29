@@ -7,10 +7,5 @@ namespace vr.mock.api.Services
 {
     public interface IStrategyManagementService : IHostedService
     {
-        string RegisterStrategy(StrategyDetailsDto strategyDetails);
-
-        bool UnregisterStrategy(string strategyId);
-        
-        List<ExecutedStrategyDto> GetExecutedStrategies();
     }
 }

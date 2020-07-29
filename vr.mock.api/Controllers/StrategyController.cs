@@ -11,13 +11,11 @@ namespace vr.mock.api.Controllers
     [Route("api/[controller]")]
     public class StrategyController : ControllerBase
     {
-        private readonly IHostedServiceAccessor<IStrategyManagementService> _strategyManagementService;
-        private readonly ILogger<StrategyController> _logger;
-
-        public StrategyController(IHostedServiceAccessor<IStrategyManagementService> strategyManagementService, ILogger<StrategyController> logger)
+        private readonly IStrategyRepository _strategyRepository;
+        
+        public StrategyController(IStrategyRepository strategyRepository)
         {
-            _strategyManagementService = strategyManagementService;
-            _logger = logger;
+            _strategyRepository = strategyRepository;
         }
 
         [HttpPost]
@@ -25,7 +23,7 @@ namespace vr.mock.api.Controllers
         [SwaggerResponse(StatusCodes.Status200OK, "OK", typeof(string))]
         public IActionResult RegisterStrategy(StrategyDetailsDto strategyDetails)
         {
-            var result = this._strategyManagementService.Service.RegisterStrategy(strategyDetails);
+            var result = this._strategyRepository.RegisterStrategy(strategyDetails);
             return new OkObjectResult(new ApiResponse
             {
                 Success = result != null,
@@ -39,24 +37,20 @@ namespace vr.mock.api.Controllers
         [SwaggerResponse(StatusCodes.Status404NotFound, "Not Found")]
         public IActionResult UnregisterStrategy(string id)
         {
-            var result = this._strategyManagementService.Service.UnregisterStrategy(id);
-            if (result)
-            {
-                return new OkObjectResult(new ApiResponse
-                {
-                    Success = result,
-                    StrategyId = id
-                });
-            }
+            var result = this._strategyRepository.UnregisterStrategy(id);
             
-            return new NotFoundResult();
+            return new OkObjectResult(new ApiResponse
+            {
+                Success = result,
+                StrategyId = id
+            });
         }
 
         [HttpGet]
         [SwaggerOperation(nameof(GetExecutedStrategies))]
         public IActionResult GetExecutedStrategies()
         {
-            return new OkObjectResult(this._strategyManagementService.Service.GetExecutedStrategies());
+            return new OkObjectResult(this._strategyRepository.GetExecutedStrategies());
         }
     }
 }
