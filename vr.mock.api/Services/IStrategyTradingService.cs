@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace vr.mock.api.Services
 {
+    /// <summary>
+    /// A wrapper service on VRTrading service to manage all strategy trading and exceptions
+    /// </summary>
     public interface IStrategyTradingService
     {
         decimal? GetLiveQuote(string ticker);

@@ -6,6 +6,7 @@ using vr.mock.api.Dtos;
 
 namespace vr.mock.api.Services
 {
+    /// <inheritdoc />
     public class StrategyRepository : IStrategyRepository
     {
         private readonly IStrategyTradingService _strategyTradingService;
@@ -19,6 +20,7 @@ namespace vr.mock.api.Services
             _localCache = localCache;
         }
 
+        /// <inheritdoc />
         public string RegisterStrategy(StrategyDetailsDto strategyDetails)
         {
             var liveQuote = this._strategyTradingService.GetLiveQuote(strategyDetails.Ticker);
@@ -40,11 +42,13 @@ namespace vr.mock.api.Services
             return null;
         }
 
+        /// <inheritdoc />
         public bool UnregisterStrategy(string strategyId)
         {
             return this._localCache.Remove(strategyId);
         }
 
+        /// <inheritdoc />
         public List<ExecutedStrategyDto> GetExecutedStrategies()
         {
             var strategies = this._localCache.GetAll<Strategy>();

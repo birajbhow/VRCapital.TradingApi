@@ -24,14 +24,6 @@ namespace vr.mock.web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //var viewModel = new TradeViewModel()
-            //{
-            //    Trades = new List<Trade>
-            //    {
-            //        new Trade { Ticker = "TESLA", BuyPrice = 100m, SellPrice = 105m},
-            //        new Trade { Ticker = "GOOG", BuyPrice = 100m, SellPrice = 105m}
-            //    }
-            //};
             var viewModel = await this._tradingService.GetTradeViewModel();
             return View(viewModel);
         }

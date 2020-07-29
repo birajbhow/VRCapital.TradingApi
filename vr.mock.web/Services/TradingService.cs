@@ -10,6 +10,7 @@ using VRTradingInfrastructureServices;
 
 namespace vr.mock.web.Services
 {
+    /// <inheritdoc />
     public class TradingService : ITradingService
     {
         private readonly IConfiguration _configuration;
@@ -18,10 +19,14 @@ namespace vr.mock.web.Services
         {
             _configuration = configuration;
         }
+
+        /// <inheritdoc />
         public async Task<TradeViewModel> GetTradeViewModel()
         {
             // get strategies from trading api
             var executedStrategies = await this.GetStrategies();
+
+            // building trade view model
             var trades = new List<Trade>();
             var strategiesByTicker = executedStrategies
                 .GroupBy(s => s.Ticker);
@@ -45,6 +50,7 @@ namespace vr.mock.web.Services
             return new TradeViewModel() { Trades = trades};
         }
 
+        // fetch all executed strategies from the trading api
         private async Task<List<ExecutedStrategy>> GetStrategies()
         {
             var url = this._configuration["TradingApi:Url"];

@@ -4,6 +4,7 @@ using VRTradingService;
 
 namespace vr.mock.api.Services
 {
+    /// <inheritdoc />
     public class StrategyTradingService : IStrategyTradingService
     {
         private readonly IVRTradingService _tradingService;
@@ -22,7 +23,7 @@ namespace vr.mock.api.Services
             }
             catch (QuoteException ex)
             {
-                Log.Error(ex, $"GetLiveQuote failed for {ex.Ticker}");
+                Log.Error(ex, $"GetLiveQuote failed for ticker: {ex.Ticker}");
             }
 
             return quote;
@@ -36,7 +37,7 @@ namespace vr.mock.api.Services
             }
             catch (TradeException ex)
             {
-                Log.Error(ex, $"Sell trade failed for {ex.Ticker}");
+                Log.Error(ex, $"Sell trade failed for ticker: {ex.Ticker}");
             }
         }
 
@@ -48,7 +49,7 @@ namespace vr.mock.api.Services
             }
             catch (TradeException ex)
             {
-                Log.Error(ex, $"Buy trade failed for {ex.Ticker}");
+                Log.Error(ex, $"Buy trade failed for ticker: {ex.Ticker}");
             }
         }
     }
